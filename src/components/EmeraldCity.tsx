@@ -1,9 +1,10 @@
 import React from "react";
+import ColorWheel from "./ColorWheel";
 
 export default class EmeraldCity extends React.Component {
     render() {
         return <>
-            emerald city
+            <div className="emeraldcity"></div>
         </>
     }
 }

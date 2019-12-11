@@ -11,9 +11,8 @@ export default class Layout extends React.Component {
     {
         return (
             <>
-                <Pane className="layoutPane" background="tealTint">
+                <Pane className="layoutPane">
                     <Navbar />
-                    <Pane className="roygbv"></Pane>
                 </Pane>
             </>
         )

@@ -1,9 +1,10 @@
 import React from "react";
+import ColorWheel from "./ColorWheel";
 
 export default class EastCarmine extends React.Component {
     render() {
         return <>
-            east carmine
+            <div className="eastcarmine"></div>
         </>
     }
 }
