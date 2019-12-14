@@ -1,9 +1,46 @@
 import React from "react";
+import axios from 'axios';
 import { Bubble } from 'react-chartjs-2';
-import { Pane } from 'evergreen-ui';
+import { Heading, Pane, Paragraph } from 'evergreen-ui';
 import './Home.scss';
 
-export default class Home extends React.Component {
+require('dotenv').config();
+
+type MyProps = { };
+type MyState = {
+    image: string,
+    description: string,
+    title: string
+};
+
+export default class Home extends React.Component<MyProps, MyState> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            image: '',
+            description: '',
+            title: ''
+        };
+    }
+
+    componentDidMount() {
+        // https://api.nasa.gov/index.html#browseAPI
+        axios.get(`https://api.nasa.gov/planetary/apod?api_key=` + process.env.REACT_APP_NASA_KEY)
+            .then((res: any) => {
+                const item = res.data;
+                this.setState({
+                    image: item.url,
+                    description: item.explanation,
+                    title: item.title
+                });
+            })
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
+    }
+
+
     render() {
         const data = {
             datasets: [
@@ -36,6 +73,13 @@ export default class Home extends React.Component {
         }
         return <>
             <div className="roygbv color-bar"></div>
+            <Pane
+                className="image-wrapper"
+            >
+                <Heading size={500}>{this.state.title}</Heading>
+                <img className="picture-of-the-day" src={this.state.image} />
+                <Paragraph size={300}>{this.state.description}</Paragraph>
+            </Pane>
             {/*<div className="bubble-wrap">*/}
             {/*    <div className="bubble-container">*/}
             {/*        <Bubble*/}
