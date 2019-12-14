@@ -1,5 +1,5 @@
 import React from "react";
-import './ColorWheel.css';
+import './ColorWheel.scss';
 
 export default class ColorWheel extends React.Component {
     render() {

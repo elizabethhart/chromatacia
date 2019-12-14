@@ -1,12 +1,13 @@
 import React from 'react';
-import Layout from './Layout';
+import Layout from './components/Layout/Layout';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from './Home';
-import Vermillion from './Vermillion';
-import HighSaffron from "./HighSaffron";
-import EmeraldCity from "./EmeraldCity";
-import EastCarmine from "./EastCarmine";
-import './App.css';
+import Home from './components/Home/Home';
+import Vermillion from './components/Vermillion/Vermillion';
+import HighSaffron from "./components/HighSaffron/HighSaffron";
+import EmeraldCity from "./components/EmeraldCity/EmeraldCity";
+import EastCarmine from "./components/EastCarmine/EastCarmine";
+import About from "./components/About/About";
+import './App.scss';
 
 class App extends React.Component {
     render() {
@@ -27,6 +28,9 @@ class App extends React.Component {
                 </Switch>
                 <Switch>
                     <Route path="/eastcarmine" component={EastCarmine} />
+                </Switch>
+                <Switch>
+                    <Route path="/about" component={About} />
                 </Switch>
             </Router>
         );

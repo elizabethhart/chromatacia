@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Heading, Pane } from "evergreen-ui";
-import ColorWheel from "./ColorWheel";
+import ColorWheel from "../ColorWheel/ColorWheel";
+import './Navbar.scss';
 
 export default class Navbar extends React.Component {
     render() {
@@ -18,7 +19,7 @@ export default class Navbar extends React.Component {
                     <Button is="a" href="/highsaffron" appearance="minimal">High Saffron</Button>
                     <Button is="a" href="/emeraldcity" appearance="minimal">Emerald City</Button>
                     <Button is="a" href="/eastcarmine" appearance="minimal">East Carmine</Button>
-                    <Button is="a" href="mailto:elizabethwhart@example.com" appearance="minimal">Email</Button>
+                    <Button is="a" href="/about" appearance="minimal">About</Button>
                 </Pane>
             </Pane>
         </>

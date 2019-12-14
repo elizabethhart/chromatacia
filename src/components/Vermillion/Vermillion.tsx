@@ -1,11 +1,10 @@
 import React from "react";
-import ColorWheel from "./ColorWheel";
-
+import './Vermillion.scss';
 
 export default class Vermillion extends React.Component {
     render() {
         return <>
-            <div className="vermillion"></div>
+            <div className="vermillion color-bar"></div>
         </>
     }
 }
