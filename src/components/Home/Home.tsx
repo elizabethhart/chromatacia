@@ -35,7 +35,7 @@ export default class Home extends React.Component {
             ]
         }
         return <>
-            <div className="roygbv"></div>
+            <div className="roygbv color-bar"></div>
             {/*<div className="bubble-wrap">*/}
             {/*    <div className="bubble-container">*/}
             {/*        <Bubble*/}
