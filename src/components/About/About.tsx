@@ -10,7 +10,7 @@ export default class About extends React.Component {
                 <Pane
                     elevation={1}
                     float="left"
-                    background="tint2"
+                    background="overlay"
                     margin={50}
                     padding={100}
                     height={500}
@@ -18,17 +18,24 @@ export default class About extends React.Component {
                     justifyContent="center"
                     alignItems="center"
                     flexDirection="column"
+                    borderRadius={10}
                 >
                     <Avatar
                         src="https://www.refinery29.com/images/8946936.jpg?format=webp&width=720&height=864&quality=85"
                         name="Elizabeth Hart"
                         size={150}
                     />
-                    <div className="info-wrapper">
-                        <Heading size={500}> Elizabeth Hart</Heading>
-                        <Paragraph size={300}>Software Engineer</Paragraph>
-                        <Paragraph size={300}>Chicago, IL</Paragraph>
-                        <Button is="a" href="mailto:elizabethwhart@example.com" appearance="minimal">
+                    <div
+                        className="info-wrapper"
+                    >
+                        <Heading size={500} color="lightblue"> Elizabeth Hart</Heading>
+                        <Paragraph size={300} color="white">Software Engineer</Paragraph>
+                        <Paragraph size={300} color="white">Chicago, IL</Paragraph>
+                        <Button
+                            is="a"
+                            href="mailto:elizabethwhart@example.com"
+                            appearance="minimal"
+                        >
                             Email &nbsp; <Icon icon="envelope" color="info" />
                         </Button>
                     </div>
@@ -36,16 +43,22 @@ export default class About extends React.Component {
                 <Pane
                     elevation={1}
                     float="left"
-                    background="tint2"
+                    background="overlay"
                     margin={50}
                     padding={10}
                     height={500}
+                    width={500}
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
                     flexDirection="column"
+                    borderRadius={10}
                 >
-                    <Heading>New Pane</Heading>
+                    <Heading
+                        color="lightblue"
+                    >
+                        New Pane
+                    </Heading>
                 </Pane>
             </Pane>
         </>

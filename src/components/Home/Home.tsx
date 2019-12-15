@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import { Bubble } from 'react-chartjs-2';
-import { Heading, Pane, Paragraph } from 'evergreen-ui';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import './Home.scss';
 
 require('dotenv').config();
@@ -21,27 +21,7 @@ export default class Home extends React.Component<MyProps, MyState> {
             description: '',
             title: ''
         };
-    }
 
-    componentDidMount() {
-        // https://api.nasa.gov/index.html#browseAPI
-        axios.get(`https://api.nasa.gov/planetary/apod?api_key=` + process.env.REACT_APP_NASA_KEY)
-            .then((res: any) => {
-                const item = res.data;
-                this.setState({
-                    image: item.url,
-                    description: item.explanation,
-                    title: item.title
-                });
-            })
-    }
-
-    componentDidUpdate() {
-        console.log('componentDidUpdate');
-    }
-
-
-    render() {
         const data = {
             datasets: [
                 {
@@ -71,15 +51,43 @@ export default class Home extends React.Component<MyProps, MyState> {
                 }
             ]
         }
+    }
+
+    componentDidMount() {
+        // https://api.nasa.gov/index.html#browseAPI
+        axios.get(`https://api.nasa.gov/planetary/apod?api_key=` + process.env.REACT_APP_NASA_KEY)
+            .then((res: any) => {
+                const item = res.data;
+                this.setState({
+                    image: item.url,
+                    description: item.explanation,
+                    title: item.title
+                });
+            });
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
+    }
+
+
+    render() {
         return <>
-            <div className="roygbv color-bar"></div>
-            <Pane
-                className="image-wrapper"
-            >
-                <Heading size={500}>{this.state.title}</Heading>
-                <img className="picture-of-the-day" src={this.state.image} />
-                <Paragraph size={300}>{this.state.description}</Paragraph>
-            </Pane>
+            <Container className="home-container">
+                <Row>
+                    <Col md="3"></Col>
+                    <Col md="6">
+                        <Card style={{ width: '100%' }}>
+                            <Card.Img variant="top" src={this.state.image} />
+                            <Card.Body>
+                                <Card.Title>{this.state.title}</Card.Title>
+                                <Card.Text>{this.state.description}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md="3"></Col>
+                </Row>
+            </Container>
             {/*<div className="bubble-wrap">*/}
             {/*    <div className="bubble-container">*/}
             {/*        <Bubble*/}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
+import Navigation from '../Navigation/Navigation';
 import { Pane } from "evergreen-ui";
 import './Layout.scss';
 
@@ -13,7 +13,7 @@ export default class Layout extends React.Component {
         return (
             <>
                 <Pane className="layoutPane">
-                    <Navbar />
+                    <Navigation />
                 </Pane>
             </>
         )

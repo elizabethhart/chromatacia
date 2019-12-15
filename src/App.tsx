@@ -7,9 +7,20 @@ import HighSaffron from "./components/HighSaffron/HighSaffron";
 import EmeraldCity from "./components/EmeraldCity/EmeraldCity";
 import EastCarmine from "./components/EastCarmine/EastCarmine";
 import About from "./components/About/About";
+import axios from "axios";
 import './App.scss';
 
 class App extends React.Component {
+    componentDidMount() {
+        axios.get('http://localhost:8000/')
+            .then((res: any) => {
+                console.log('res', res);
+            })
+            .catch((err: any) => {
+                console.log('err', err);
+            });
+    }
+
     render() {
         return (
             <Router>
