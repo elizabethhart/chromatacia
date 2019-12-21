@@ -16,13 +16,13 @@ export default class Navigation extends React.Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/vermillion">Vermillion</Nav.Link>
                         <Nav.Link href="/emeraldcity">High Saffron</Nav.Link>
                         <Nav.Link href="/eastcarmine">East Carmine</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/register">Register</Nav.Link>
                     </Nav>
+                </Navbar.Collapse>
+                <Navbar.Collapse className="justify-content-end">
+                    <Nav.Link href="/about">About</Nav.Link>
                 </Navbar.Collapse>
             </Navbar>
         </>

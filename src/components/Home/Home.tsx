@@ -73,6 +73,7 @@ export default class Home extends React.Component<MyProps, MyState> {
 
     render() {
         return <>
+            <div className="roygbv color-bar"></div>
             <Container className="home-container">
                 <Row>
                     <Col md="3"></Col>
