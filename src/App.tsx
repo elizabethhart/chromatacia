@@ -7,6 +7,7 @@ import HighSaffron from "./components/HighSaffron/HighSaffron";
 import EmeraldCity from "./components/EmeraldCity/EmeraldCity";
 import EastCarmine from "./components/EastCarmine/EastCarmine";
 import About from "./components/About/About";
+import UserForm from "./components/User/UserForm";
 import axios from "axios";
 import './App.scss';
 
@@ -42,6 +43,9 @@ class App extends React.Component {
                 </Switch>
                 <Switch>
                     <Route path="/about" component={About} />
+                </Switch>
+                <Switch>
+                    <Route path="/register" component={UserForm} />
                 </Switch>
             </Router>
         );

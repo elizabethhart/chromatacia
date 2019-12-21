@@ -21,6 +21,7 @@ export default class Navigation extends React.Component {
                         <Nav.Link href="/emeraldcity">High Saffron</Nav.Link>
                         <Nav.Link href="/eastcarmine">East Carmine</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
+                        <Nav.Link href="/register">Register</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
