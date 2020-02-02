@@ -3,6 +3,7 @@ import { Reducer } from 'redux';
 import { CharacterActions, CharacterActionTypes } from '../actions/CharacterActions';
 
 export interface ICharacter {
+    id: number,
     name: string;
     color: string;
 }
