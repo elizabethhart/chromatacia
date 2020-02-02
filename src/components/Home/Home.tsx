@@ -4,6 +4,8 @@ import { Bubble } from 'react-chartjs-2';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import './Home.scss';
 
+import CharacterList from '../../containers/CharacterList';
+
 require('dotenv').config();
 
 type MyProps = { };
@@ -75,6 +77,7 @@ export default class Home extends React.Component<MyProps, MyState> {
         return <>
             <div className="roygbv color-bar"></div>
             <Container className="home-container">
+                <CharacterList />
                 <Row>
                     <Col md="3"></Col>
                     <Col md="6">
@@ -89,45 +92,6 @@ export default class Home extends React.Component<MyProps, MyState> {
                     <Col md="3"></Col>
                 </Row>
             </Container>
-            {/*<div className="bubble-wrap">*/}
-            {/*    <div className="bubble-container">*/}
-            {/*        <Bubble*/}
-            {/*            data={data}*/}
-            {/*            width={100}*/}
-            {/*            height={100}*/}
-            {/*            options={{*/}
-            {/*                responsive: true,*/}
-            {/*                maintainAspectRatio: true,*/}
-            {/*                scales: {*/}
-            {/*                    xAxes: [{*/}
-            {/*                        gridLines: {*/}
-            {/*                            color: "rgba(0, 0, 0, 0)",*/}
-            {/*                            display: false,*/}
-            {/*                        },*/}
-            {/*                        ticks: {*/}
-            {/*                            display: false //this will remove only the label*/}
-            {/*                        }*/}
-            {/*                    }],*/}
-            {/*                    yAxes: [{*/}
-            {/*                        gridLines: {*/}
-            {/*                            color: "rgba(0, 0, 0, 0)",*/}
-            {/*                            display: false,*/}
-            {/*                        },*/}
-            {/*                        ticks: {*/}
-            {/*                            display: false //this will remove only the label*/}
-            {/*                        }*/}
-            {/*                    }]*/}
-            {/*                },*/}
-            {/*                legend: {*/}
-            {/*                    display: false*/}
-            {/*                },*/}
-            {/*                tooltips: {*/}
-            {/*                    enabled: false*/}
-            {/*                }*/}
-            {/*            }}*/}
-            {/*        />*/}
-            {/*    </div>*/}
-            {/*</div>*/}
         </>
     }
 }
