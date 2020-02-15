@@ -8,20 +8,11 @@ import EmeraldCity from "./components/EmeraldCity/EmeraldCity";
 import EastCarmine from "./components/EastCarmine/EastCarmine";
 import About from "./components/About/About";
 import UserForm from "./components/User/UserForm";
-import axios from "axios";
+// import axios from "axios";
 import './App.scss';
+import BookClub from './components/BookClub/BookClub';
 
 class App extends React.Component {
-    componentDidMount() {
-        axios.get('http://localhost:8000/')
-            .then((res: any) => {
-                console.log('res', res);
-            })
-            .catch((err: any) => {
-                console.log('err', err);
-            });
-    }
-
     render() {
         return (
             <Router>
@@ -40,6 +31,9 @@ class App extends React.Component {
                 </Switch>
                 <Switch>
                     <Route path="/eastcarmine" component={EastCarmine} />
+                </Switch>
+                <Switch>
+                    <Route path="/bookclub" component={BookClub} />
                 </Switch>
                 <Switch>
                     <Route path="/about" component={About} />

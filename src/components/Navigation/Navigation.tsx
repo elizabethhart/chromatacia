@@ -19,6 +19,7 @@ export default class Navigation extends React.Component {
                         <Nav.Link href="/vermillion">Vermillion</Nav.Link>
                         <Nav.Link href="/emeraldcity">High Saffron</Nav.Link>
                         <Nav.Link href="/eastcarmine">East Carmine</Nav.Link>
+                        <Nav.Link href="/bookclub">Book Club</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Collapse className="justify-content-end">

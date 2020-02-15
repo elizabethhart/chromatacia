@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import { Bubble } from 'react-chartjs-2';
+// import { Bubble } from 'react-chartjs-2';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import './Home.scss';
 
