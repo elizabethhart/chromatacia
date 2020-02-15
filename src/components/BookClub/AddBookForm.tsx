@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 interface AddBookFormProps {
     books: Book[],
@@ -66,14 +67,37 @@ class AddBookForm extends React.Component<AddBookFormProps, AddBookFormState> {
 
     render() {
         return (
-            <form className="book-form" onSubmit={this.createBook}>
-                <input name="title" ref={this.titleRef} type="text" placeholder="Title" />
-                <input name="author" ref={this.authorRef} type="text" placeholder="Author" />
-                <input name="pages" ref={this.pagesRef} type="number" placeholder="Pages" />
-                <input name="goodReadsRating" ref={this.goodReadsRatingRef} type="text" placeholder="Goodreads Rating" />
-                <input name="goodReadsReviewCount" ref={this.goodReadsReviewCountRef} type="number" placeholder="Goodreads Reviews" />
-                <button type="submit">+ Add Book</button>
-            </form>
+            <Container>
+                <Row>
+                    <Col sm={4}>
+                        <Form className="book-form" onSubmit={this.createBook}>
+                            <Form.Group>
+                                <Form.Control type="text" ref={this.titleRef} placeholder="Title" />
+                                <Form.Text></Form.Text>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Control ref={this.authorRef} type="text" placeholder="Author" />
+                                <Form.Text></Form.Text>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Control name="pages" ref={this.pagesRef} type="number" placeholder="Pages" />
+                                <Form.Text></Form.Text>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Control name="goodReadsRating" ref={this.goodReadsRatingRef} type="text" placeholder="Goodreads Rating" />
+                                <Form.Text></Form.Text>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Control name="goodReadsReviewCount" ref={this.goodReadsReviewCountRef} type="number" placeholder="Goodreads Reviews" />
+                                <Form.Text></Form.Text>
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                + Add Book
+                            </Button>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 
