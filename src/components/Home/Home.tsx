@@ -24,35 +24,35 @@ export default class Home extends React.Component<MyProps, MyState> {
             title: ''
         };
 
-        const data = {
-            datasets: [
-                {
-                    data: [
-                        {x: 1, y: 10, r: 1},
-                        {x: 2, y: 10, r: 2},
-                        {x: 3, y: 10, r: 3},
-                        {x: 4, y: 10, r: 4},
-                        {x: 5, y: 10, r: 5},
-                        {x: 6, y: 10, r: 6},
-                        {x: 7, y: 10, r: 7},
-                        {x: 8, y: 10, r: 8},
-                        {x: 9, y: 10, r: 9},
-                        {x: 10, y: 10, r: 10},
-                        {x: 11, y: 10, r: 9},
-                        {x: 12, y: 10, r: 8},
-                        {x: 13, y: 10, r: 7},
-                        {x: 14, y: 10, r: 6},
-                        {x: 15, y: 10, r: 5},
-                        {x: 16, y: 10, r: 4},
-                        {x: 17, y: 10, r: 3},
-                        {x: 18, y: 10, r: 2},
-                        {x: 19, y: 10, r: 1},
-                    ],
-                    backgroundColor: "red",
-                    hoverBackgroundColor: "#ff6384"
-                }
-            ]
-        }
+        // const data = {
+        //     datasets: [
+        //         {
+        //             data: [
+        //                 {x: 1, y: 10, r: 1},
+        //                 {x: 2, y: 10, r: 2},
+        //                 {x: 3, y: 10, r: 3},
+        //                 {x: 4, y: 10, r: 4},
+        //                 {x: 5, y: 10, r: 5},
+        //                 {x: 6, y: 10, r: 6},
+        //                 {x: 7, y: 10, r: 7},
+        //                 {x: 8, y: 10, r: 8},
+        //                 {x: 9, y: 10, r: 9},
+        //                 {x: 10, y: 10, r: 10},
+        //                 {x: 11, y: 10, r: 9},
+        //                 {x: 12, y: 10, r: 8},
+        //                 {x: 13, y: 10, r: 7},
+        //                 {x: 14, y: 10, r: 6},
+        //                 {x: 15, y: 10, r: 5},
+        //                 {x: 16, y: 10, r: 4},
+        //                 {x: 17, y: 10, r: 3},
+        //                 {x: 18, y: 10, r: 2},
+        //                 {x: 19, y: 10, r: 1},
+        //             ],
+        //             backgroundColor: "red",
+        //             hoverBackgroundColor: "#ff6384"
+        //         }
+        //     ]
+        // }
     }
 
     componentDidMount() {

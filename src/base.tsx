@@ -3,8 +3,6 @@ import firebase from 'firebase';
 
 require('dotenv').config();
 
-console.log('env', process.env)
-
 const firebaseApp = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,

@@ -49,11 +49,13 @@ class BookClub extends React.Component<BookClubProps, BookClubState> {
     componentDidMount() {        
         this.ref = base.syncState(`books`, {
             context: this,
+            asArray: true,
             state: 'books'
         });
 
         this.ref = base.syncState(`members`, {
             context: this,
+            asArray: true,
             state: 'members'
         });
     }
@@ -63,7 +65,7 @@ class BookClub extends React.Component<BookClubProps, BookClubState> {
     }
 
     addBook = (book: Book) => {
-        const books = { ...this.state.books };
+        const books = [ ...this.state.books ];
 
         books.push(book)
 
@@ -71,7 +73,7 @@ class BookClub extends React.Component<BookClubProps, BookClubState> {
     }
 
     updateBook = (index: number, updatedBook: Book) => {
-        const books = { ...this.state.books }
+        const books = [ ...this.state.books ]
 
         books[index] = updatedBook
 
@@ -79,23 +81,11 @@ class BookClub extends React.Component<BookClubProps, BookClubState> {
     }
 
     deleteBook = (index: number) => {
-        const books = { ...this.state.books }
+        const books = [ ...this.state.books ]
 
         books[index] = null;
 
         this.setState({ books })
-    }
-
-    loadSampleBooks = () => {
-        this.setState({ books: [
-            {
-                'title': 'Test Book',
-                'author': 'Author',
-                'pages': 300,
-                'goodReadsRating': '4.5',
-                'goodReadsReviewCount': 39282
-            }
-        ] })
     }
 
     loadSampleMembers = () => {
@@ -109,7 +99,7 @@ class BookClub extends React.Component<BookClubProps, BookClubState> {
             <>
                 <ul>
                     {this.state.books.length ? this.state.books.map((item: Book, key: number) =>
-                        <li>
+                        <li key={key}>
                             {item.title}
                             <strong onClick={() => this.deleteBook(key)}>&times;</strong>
                         </li>
@@ -120,7 +110,7 @@ class BookClub extends React.Component<BookClubProps, BookClubState> {
 
                 <ul>
                     {this.state.members.length ? this.state.members.map((item: Member, key: number) =>
-                        <li>
+                        <li key={key}>
                             {item.name}
                         </li>
                     ) : null}
