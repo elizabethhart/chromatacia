@@ -3,6 +3,7 @@ import base from '../../base';
 import './BookClub.scss';
 import AddBookForm from './AddBookForm';
 import SearchBookForm from './SearchBookForm';
+import AddMemberForm from './AddMemberForm';
 import axios from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
 
@@ -80,6 +81,14 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
         this.setState({ books })
     }
 
+    addMember = (member: Member) => {
+        const members = [ ...this.state.members ];
+
+        members.push(member)
+
+        this.setState({ members })
+    }
+
     updateBook = (index: number, updatedBook: Book) => {
         const books = [ ...this.state.books ]
 
@@ -94,6 +103,14 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
         books[index] = null;
 
         this.setState({ books })
+    }
+
+    deleteMember = (index: number) => {
+        const members = [ ...this.state.members ]
+
+        members[index] = null;
+
+        this.setState({ members })
     }
 
     loadSampleMembers = () => {
@@ -116,11 +133,16 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
         console.log('requestUrl', requestUrl);
 
         let config = {
-            headers: {'Access-Control-Allow-Origin': '*'},
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+                'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+                'Access-Control-Allow-Credentials': true
+            },
             crossdomain: true
         };
 
-        axios.get(requestUrl, config)
+        axios.get('http://localhost:5000/books', config)
             .then((res: any) => {
                 console.log('res', res);
                 let jsonres = new XMLParser().parseFromString(res);
@@ -169,9 +191,14 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
                             {this.state.members.length ? this.state.members.map((item: Member, key: number) =>
                                 <li key={key}>
                                     {item.name}
+                                    <strong onClick={() => this.deleteMember(key)}>&times;</strong>
                                 </li>
                             ) : null}
                         </ul>
+                    </Col>
+
+                    <Col>
+                        <AddMemberForm members={this.state.members} addMember={this.addMember}/>
                     </Col>
                 </Row>
             </Container>
