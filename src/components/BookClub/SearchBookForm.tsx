@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 
 interface SearchBookFormProps {
     searchBook: any
@@ -34,25 +34,32 @@ export default class SearchBookForm extends React.Component<SearchBookFormProps,
 
     render() {
         return (
-            <Container>
-                <Row>
-                    <Col sm={4}>
-                        <Form className="book-form" onSubmit={this.searchBook}>
+            <>
+                <h2>Search for a Book:</h2>
+                <Form className="book-form" onSubmit={this.searchBook}>
+                    <Row>
+                        <Col>
                             <Form.Group>
                                 <Form.Control name="title" ref={this.titleRef} type="text" placeholder="Title" />
                                 <Form.Text></Form.Text>
                             </Form.Group>
+                        </Col>
+                        <Col>
                             <Form.Group>
                                 <Form.Control name="author" ref={this.authorRef} type="text" placeholder="Author" />
                                 <Form.Text></Form.Text>
                             </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
                             <Button variant="primary" type="submit">
                                 Search Goodreads
                             </Button>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
+                        </Col>
+                    </Row>
+                </Form>
+            </>
         )
     }
 

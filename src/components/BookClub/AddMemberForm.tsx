@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 
 interface AddMemberFormProps {
     members: Member[],
@@ -41,21 +41,24 @@ class AddMemberForm extends React.Component<AddMemberFormProps, AddMemberFormSta
 
     render() {
         return (
-            <Container>
-                <Row>
-                    <Col sm={4}>
-                        <Form className="member-form" onSubmit={this.createMember}>
+            <>
+                <h2>Add New Member:</h2>
+                <Form className="member-form" onSubmit={this.createMember}>
+                    <Row>
+                        <Col>
                             <Form.Group>
                                 <Form.Control type="text" ref={this.nameRef} placeholder="Name" />
                                 <Form.Text></Form.Text>
                             </Form.Group>
+                        </Col>
+                        <Col>
                             <Button variant="primary" type="submit">
                                 + Add Member
                             </Button>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
+                        </Col>
+                    </Row>
+                </Form>
+            </>
         )
     }
 
