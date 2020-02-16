@@ -34,7 +34,7 @@ interface Member {
     name: string,
 }
 
-class BookClub extends React.Component<BookClubProps, BookClubState> {
+export default class BookClub extends React.Component<BookClubProps, BookClubState> {
     ref: any
 
     constructor(props: BookClubProps) {
@@ -119,5 +119,3 @@ class BookClub extends React.Component<BookClubProps, BookClubState> {
         );
     }
 }
-
-export default BookClub;
