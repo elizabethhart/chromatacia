@@ -6,6 +6,7 @@ export interface ICharacter {
     id: number,
     name: string;
     color: string;
+    image: string;
 }
 
 export interface ICharacterState {

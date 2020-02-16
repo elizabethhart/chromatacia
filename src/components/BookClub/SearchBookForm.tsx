@@ -53,7 +53,7 @@ export default class SearchBookForm extends React.Component<SearchBookFormProps,
                     </Row>
                     <Row>
                         <Col>
-                            <Button variant="primary" type="submit">
+                            <Button variant="light" type="submit">
                                 Search Goodreads
                             </Button>
                         </Col>

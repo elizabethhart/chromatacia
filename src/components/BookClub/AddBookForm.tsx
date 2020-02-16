@@ -15,7 +15,8 @@ interface Book {
     author: string,
     pages: number,
     goodReadsRating: string,
-    goodReadsReviewCount: number
+    month: string,
+    year: number
 }
 
 interface Books {
@@ -38,6 +39,8 @@ class AddBookForm extends React.Component<AddBookFormProps, AddBookFormState> {
     private pagesRef: any
     private goodReadsRatingRef: any
     private goodReadsReviewCountRef: any
+    private monthRef: any
+    private yearRef: any
 
     constructor(props: AddBookFormProps) {
         super(props)
@@ -46,7 +49,8 @@ class AddBookForm extends React.Component<AddBookFormProps, AddBookFormState> {
         this.authorRef = React.createRef()
         this.pagesRef = React.createRef()
         this.goodReadsRatingRef = React.createRef()
-        this.goodReadsReviewCountRef = React.createRef()
+        this.monthRef = React.createRef()
+        this.yearRef = React.createRef()
     }
 
     createBook = (event: any) => {
@@ -57,7 +61,8 @@ class AddBookForm extends React.Component<AddBookFormProps, AddBookFormState> {
             author: this.authorRef.current.value,
             pages: this.pagesRef.current.value,
             goodReadsRating: this.goodReadsRatingRef.current.value,
-            goodReadsReviewCount: this.goodReadsReviewCountRef.current.value
+            month: this.monthRef.current.value,
+            year: this.yearRef.current.value
         }
 
         this.props.addBook(book)
@@ -87,7 +92,7 @@ class AddBookForm extends React.Component<AddBookFormProps, AddBookFormState> {
                     <Row>
                         <Col>
                             <Form.Group>
-                                <Form.Control name="goodReadsReviewCount" ref={this.goodReadsReviewCountRef} type="number" placeholder="Goodreads Reviews" />
+                                <Form.Control name="pages" ref={this.pagesRef} type="number" placeholder="Pages" />
                                 <Form.Text></Form.Text>
                             </Form.Group>
                         </Col>
@@ -101,12 +106,20 @@ class AddBookForm extends React.Component<AddBookFormProps, AddBookFormState> {
                     <Row>
                         <Col>
                             <Form.Group>
-                                <Form.Control name="pages" ref={this.pagesRef} type="number" placeholder="Pages" />
+                                <Form.Control name="month" ref={this.monthRef} type="text" placeholder="Month" />
                                 <Form.Text></Form.Text>
                             </Form.Group>
                         </Col>
                         <Col>
-                            <Button variant="primary" type="submit">
+                            <Form.Group>
+                                <Form.Control name="year" ref={this.yearRef} type="number" placeholder="Year" />
+                                <Form.Text></Form.Text>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Button variant="light" type="submit">
                                 + Add Book
                             </Button>
                         </Col>

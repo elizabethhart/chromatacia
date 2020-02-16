@@ -22,27 +22,33 @@ export type CharacterActions = ICharacterGetAllAction | ICharacterGetOneAction;
 const characters = [
     {
         name: 'Eddie Russett',
-        color: 'Red'
+        color: 'Red',
+        image: 'https://i.pinimg.com/736x/c9/da/62/c9da6259c6cd800f74febcff2d1fedfe.jpg'
     },
     {
         name: 'Jane G23',
-        color: 'Grey'
+        color: 'Grey',
+        image: 'https://www.pantone.com/images/products/108000009-pantone-card-holder-pms-cool-gray-9-product.jpg'
     },
     {
         name: 'Violet deMauve',
-        color: 'Purple'
+        color: 'Purple',
+        image: 'https://i.pinimg.com/originals/4e/17/2d/4e172dcfad8b90eb26397ade91f3ae17.png'
     },
     {
         name: 'Tommo Cinnabar',
-        color: 'Red'
+        color: 'Red',
+        image: 'https://i.pinimg.com/originals/24/4e/02/244e02111bbb8bd56693083f30231c50.png'
     },
     {
         name: 'Courtland Gamboge',
-        color: 'Yellow'
+        color: 'Yellow',
+        image: 'https://www.pantone.com/images/products/108000012-pantone-card-holder-pms-012-product.jpg'
     },
     {
         name: 'Mr Turquoise',
-        color: 'Blue'
+        color: 'Blue',
+        image: 'https://i.pinimg.com/originals/ac/0f/84/ac0f8435959e50ff2724ae0cc967850e.png'
     }
 ]
 

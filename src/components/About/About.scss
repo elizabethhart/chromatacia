@@ -1,8 +1,39 @@
 .about-container {
     width: 100%;
-    padding: 50px;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
 }
 
-.card-test {
-    padding: 20px;
+.card-theme {
+    background-color: #202020 !important;
+    border-radius: 5px;
+    padding: 10px;
+    height: 300px;
+    margin-top: 50px;
+
+    .profile-img {
+        display: inline-block;
+        width: 40%;
+        border-radius: 50%;
+        margin: 20px;
+        vertical-align: top;
+    }
+
+    .profile-content {
+        display: inline-block;
+        width: 40%;
+
+        .card-title {
+            color: #7DFDFE;
+        }
+    
+        h2 {
+            color: #7DFDFE;
+        }
+    
+        p {
+            color: white;
+        }
+    }
 }

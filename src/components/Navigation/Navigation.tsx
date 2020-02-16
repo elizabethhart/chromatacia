@@ -7,9 +7,9 @@ import './Navigation.scss';
 export default class Navigation extends React.Component {
     render() {
         return <>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="dark" expand="lg" variant="dark">
                 <Navbar.Brand href="/">
-                    <Heading size={600} color="#425A70">
+                    <Heading size={600}>
                         <ColorWheel /> Chromatacia
                     </Heading>
                 </Navbar.Brand>

@@ -52,7 +52,7 @@ class AddMemberForm extends React.Component<AddMemberFormProps, AddMemberFormSta
                             </Form.Group>
                         </Col>
                         <Col>
-                            <Button variant="primary" type="submit">
+                            <Button variant="light" type="submit">
                                 + Add Member
                             </Button>
                         </Col>

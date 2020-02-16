@@ -26,7 +26,8 @@ interface Book {
     author: string,
     pages: number,
     goodReadsRating: string,
-    goodReadsReviewCount: number
+    month: string,
+    year: number
 }
 
 interface Books {
@@ -175,14 +176,15 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
                 <Row className="row-style">
                     <Col>
                         <h2>Books Added:</h2>
-                        <Table striped bordered hover>
+                        <Table variant="dark" striped bordered hover>
                             <thead>
                                 <tr>
                                     <th>Title</th>
                                     <th>Author</th>
                                     <th>Pages</th>
                                     <th>Goodreads Rating</th>
-                                    <th>Goodreads Reviews</th>
+                                    <th>Month</th>
+                                    <th>Year</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -194,7 +196,8 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
                                         <td>{item.author}</td>
                                         <td>{item.pages}</td>
                                         <td>{item.goodReadsRating}</td>
-                                        <td>{item.goodReadsReviewCount}</td>
+                                        <td>{item.month}</td>
+                                        <td>{item.year}</td>
                                         <td onClick={() => this.updateBook(key, item)}><i className="fa fa-edit"></i></td>
                                         <td onClick={() => this.deleteBook(key)}><i className="fa fa-trash"></i></td>
                                     </tr>
@@ -213,7 +216,7 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
                 <Row className="row-style">
                     <Col>
                         <h2>Club Members:</h2>
-                        <Table striped bordered hover>
+                        <Table variant="dark" striped bordered hover>
                             <thead>
                                 <tr>
                                     <th>Name</th>
