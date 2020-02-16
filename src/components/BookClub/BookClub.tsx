@@ -2,6 +2,13 @@ import React from 'react';
 import base from '../../base';
 import './BookClub.scss';
 import AddBookForm from './AddBookForm';
+import SearchBookForm from './SearchBookForm';
+import axios from 'axios';
+import { Col, Container, Row } from 'react-bootstrap';
+
+var XMLParser = require('react-xml-parser');
+
+require('dotenv').config();
 
 interface BookClubProps {
     match: any
@@ -36,13 +43,14 @@ interface Member {
 
 export default class BookClub extends React.Component<BookClubProps, BookClubState> {
     ref: any
+    searchOutput: any
 
     constructor(props: BookClubProps) {
         super(props);
 
         this.state = { 
             books: [],
-            members: []
+            members: [],
          };
     }
 
@@ -94,28 +102,79 @@ export default class BookClub extends React.Component<BookClubProps, BookClubSta
         }] })
     }
 
+    searchBookByTitle = (search: any) => {
+        let requestUrl = 'https://www.goodreads.com/book/title.FORMAT?key=' + process.env.REACT_APP_GOODREADS_API_KEY;
+
+        if (search.title) {
+            requestUrl += ('&title=' + encodeURIComponent(search.title));
+        }
+
+        if (search.author) {
+            requestUrl += ('&author' + encodeURIComponent(search.title));
+        }
+
+        console.log('requestUrl', requestUrl);
+
+        let config = {
+            headers: {'Access-Control-Allow-Origin': '*'},
+            crossdomain: true
+        };
+
+        axios.get(requestUrl, config)
+            .then((res: any) => {
+                console.log('res', res);
+                let jsonres = new XMLParser().parseFromString(res);
+                console.log('json res', jsonres);
+                this.searchOutput = jsonres;
+            })
+            .catch((err: any) => {
+                console.log('err', err);
+            });
+    }
+
     render() {
         return (
-            <>
-                <ul>
-                    {this.state.books.length ? this.state.books.map((item: Book, key: number) =>
-                        <li key={key}>
-                            {item.title}
-                            <strong onClick={() => this.deleteBook(key)}>&times;</strong>
-                        </li>
-                    ) : null}
-                </ul>
+            <Container>
+                <Row>
+                    <Col>
+                        <SearchBookForm searchBook={this.searchBookByTitle} />
+                    </Col>
+                    <Col>
+                        <pre>{this.searchOutput}</pre>
+                    </Col>
+                </Row>
 
-                <AddBookForm books={this.state.books} addBook={this.addBook}/>
+                <Row>
+                    <Col>
+                        <h2>Books Added:</h2>
+                        <ul>
+                            {this.state.books.length ? this.state.books.map((item: Book, key: number) =>
+                                <li key={key}>
+                                    {item.title}
+                                    <strong onClick={() => this.deleteBook(key)}>&times;</strong>
+                                </li>
+                            ) : null}
+                        </ul>
+                    </Col>
 
-                <ul>
-                    {this.state.members.length ? this.state.members.map((item: Member, key: number) =>
-                        <li key={key}>
-                            {item.name}
-                        </li>
-                    ) : null}
-                </ul>
-            </>
+                    <Col>
+                        <AddBookForm books={this.state.books} addBook={this.addBook}/>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col>
+                        <h2>Club Members:</h2>
+                        <ul>
+                            {this.state.members.length ? this.state.members.map((item: Member, key: number) =>
+                                <li key={key}>
+                                    {item.name}
+                                </li>
+                            ) : null}
+                        </ul>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }
