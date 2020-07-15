@@ -1,11 +1,16 @@
 import React from "react";
-// import ColorWheel from "../ColorWheel/ColorWheel";
 import './HighSaffron.scss';
 
-export default class HighSaffron extends React.Component {
-    render() {
-        return <>
+type HighSaffronProps = { }
+
+const HighSaffron: React.FC<HighSaffronProps> = ({
+
+}: HighSaffronProps) => {
+    return (
+        <>
             <div className="highsaffron color-bar"></div>
         </>
-    }
-}
+    );
+};
+
+export default HighSaffron;

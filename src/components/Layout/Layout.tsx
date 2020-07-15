@@ -3,15 +3,18 @@ import Navigation from '../Navigation/Navigation';
 import { Pane } from "evergreen-ui";
 import './Layout.scss';
 
-export default class Layout extends React.Component {
-    render()
-    {
-        return (
-            <>
-                <Pane className="layoutPane">
-                    <Navigation />
-                </Pane>
-            </>
-        )
-    }
-}
+type LayoutProps = { }; 
+
+const Layout: React.FC<LayoutProps> = ({
+    
+}: LayoutProps) => {
+    return (
+        <>
+            <Pane className="layoutPane">
+                <Navigation />
+            </Pane>
+        </>
+    );
+};
+
+export default Layout;

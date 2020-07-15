@@ -1,27 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from 'react-bootstrap';
 import axios from 'axios';
 
 import './About.scss';
 
-interface AboutProps {
+type AboutProps = { }
 
-}
+const About: React.FC<AboutProps> = ({
 
-interface AboutState {
-    backgroundUrl: string
-}
+}: AboutProps) => {
+    const [backgroundUrl, setBackgroundUrl] = useState<string>("");
 
-export default class About extends React.Component<AboutProps, AboutState> {
-    constructor(props: AboutProps) {
-        super(props);
-
-        this.state = { 
-            backgroundUrl: '',
-        };
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         let requestUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=Chicago,IL'
         requestUrl += '&zoom=10&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0x1d2c4d'
         requestUrl += '&style=element:labels%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x8ec3b9'
@@ -44,17 +34,14 @@ export default class About extends React.Component<AboutProps, AboutState> {
 
         axios.get(requestUrl)
             .then((res: any) => {
-                console.log('res', res.config.url);
-                this.setState({
-                    backgroundUrl: res.config.url
-                })
+                setBackgroundUrl(res.config.url);
             });
-    }
+    }, []);
 
-    render() {
-        return <>
+    return (
+        <>
             <div className="about color-bar"></div>
-            <Container className="about-container" style={{backgroundImage: `url(${this.state.backgroundUrl})`}}>
+            <Container className="about-container" style={{backgroundImage: `url(${backgroundUrl})`}}>
                 <Row>
                     <Col md="3"></Col>
                     <Col md="6">
@@ -75,5 +62,7 @@ export default class About extends React.Component<AboutProps, AboutState> {
                 </Row>
             </Container>
         </>
-    }
-}
+    );
+};
+
+export default About;
