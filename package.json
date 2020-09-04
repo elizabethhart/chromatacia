@@ -51,8 +51,7 @@
     "start": "react-scripts --max_old_space_size=2048 start",
     "build": "react-scripts --max_old_space_size=2048 build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "cross-env NODE_ENV=production WEBPACK_CONFIG=browser_prod,server_prod webpack --colors"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
