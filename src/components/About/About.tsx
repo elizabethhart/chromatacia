@@ -64,6 +64,7 @@ const About: React.FC<AboutProps> = ({
               <ProfileContent>
                 <h1>Liz Hart</h1>
                 <h6>Software Engineer | Artist</h6>
+                <h6>Chicago</h6>
                 <a
                   href="https://github.com/elizabethhart"
                   className="profile-link"
@@ -71,7 +72,7 @@ const About: React.FC<AboutProps> = ({
                   <FaGithub /> {'github'}
                 </a>
                 <a
-                  href="mailto:elizabethwhart@example.com"
+                  href="mailto:elizabethwhart@gmail.com"
                   className="profile-link"
                 >
                   <FaMailBulk /> {'email'}

@@ -21,6 +21,11 @@ const Navigation: React.FC<NavigationProps> = ({
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end">
+                <Nav.Link
+                    onClick={() => history.push('/gallery')}
+                >
+                    Gallery
+                </Nav.Link>
                 <Nav.Link 
                     className="about-link" 
                     onClick={() => history.push('/about')}
