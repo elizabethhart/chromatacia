@@ -24,14 +24,7 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
           if (err) {
            console.log(err);
           } else {
-            if (
-              result.hasOwnProperty('GoodreadsReponse') &&
-              result.GoodreadsResponse.hasOwnProperty('reviews') &&
-              result.GoodreadsResponse.reviews.length > 0 &&
-              result.GoodreadsResponse.reviews[0].hasOwnProperty('review')
-            ) {
-              setBooks(result.GoodreadsResponse.reviews[0].review);
-            }
+            setBooks(result.GoodreadsResponse.reviews[0].review);
          }
          setIsLoading(false);
         }); 
