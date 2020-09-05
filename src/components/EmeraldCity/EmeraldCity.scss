@@ -1,3 +1,12 @@
 .emeraldcity {
   background: #50c878;
 }
+
+.card {
+  display: inline-block !important;
+  margin: 20px;
+  
+  .card-img-top {
+    width: auto;
+  }
+}
