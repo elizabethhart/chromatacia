@@ -1,10 +1,22 @@
 # Chromatacia
 
+Deployed to [liz-hart.com](http://www.liz-hart.com/)
+
 ## Tools
 
 - [Create React App](https://github.com/facebook/create-react-app)
+- [Heroku Buildpack for create-react-app](https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack)
+
+## Frameworks
+
 - [Evergreen React UI Framework](https://evergreen.segment.com/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
+- [Styled Components](https://styled-components.com/)
+
+## APIs
+
+- [Google Maps](https://developers.google.com/maps/documentation)
+- [Flickr](https://www.flickr.com/services/api/)
 
 ## Installation
 
