@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import './EmeraldCity.scss';
 
 type EmeraldCityProps = { }
@@ -12,19 +12,24 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
   const parseString = require('xml2js').parseString;
 
   useEffect(() => {
-      getBooks();
+    getBooks();
   }, []);
 
   function getBooks() {
     axios.get(`${process.env.REACT_APP_CORS_ANYWHERE_URL}https://www.goodreads.com/review/list/89704524.xml?key=${process.env.REACT_APP_GOODREADS_API_KEY}&v=2&shelf=currently-reading`)
       .then((response) => {
-        console.log('response', response);
         parseString(response.data, (err: any, result: any) => {
           if (err) {
            console.log(err);
           } else {
-           console.log('parsing result', result.GoodreadsResponse.reviews[0].review);
-           setBooks(result.GoodreadsResponse.reviews[0].review);
+            if (
+              result.hasOwnProperty('GoodreadsReponse') &&
+              result.GoodreadsResponse.hasOwnProperty('reviews') &&
+              result.GoodreadsResponse.reviews.length > 0 &&
+              result.GoodreadsResponse.reviews[0].hasOwnProperty('review')
+            ) {
+              setBooks(result.GoodreadsResponse.reviews[0].review);
+            }
          }
         }); 
       })
@@ -38,18 +43,23 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
       <div className="emeraldcity color-bar"></div>
       <Container className="home-container">
         <Row>
-          <Col>
-            {books.map((book: any, index: number) => {
-              let bookObject = book.book[0];
-              return <Card key={index}>
-                <Card.Img variant="top" src={bookObject.image_url} />
-                <Card.Body>
-                  <Card.Title>{bookObject.title}</Card.Title>
-                  <Card.Text>{bookObject.authors[0].author[0].name}</Card.Text>
-                </Card.Body>
-              </Card>
-            })}
-          </Col>
+          {books.length > 0
+            ? <Col>
+              {books.map((book: any, index: number) => {
+                let bookObject = book.book[0];
+                return <Card key={index}>
+                  <Card.Img variant="top" src={bookObject.image_url} />
+                  <Card.Body>
+                    <Card.Title>{bookObject.title}</Card.Title>
+                    <Card.Text>{bookObject.authors[0].author[0].name}</Card.Text>
+                  </Card.Body>
+                </Card>
+              })}
+            </Col>
+            : <Col>
+              <Spinner animation="border" variant="light" className="m-5"/>
+            </Col>
+          }
         </Row>
       </Container>
     </>

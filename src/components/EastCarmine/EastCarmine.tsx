@@ -16,13 +16,15 @@ const EastCarmine: React.FC<EastCarmineProps> = ({
   }, []);
 
   function getGalleryImages() {
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${process.env.REACT_APP_FLICKR_API_KEY}&photoset_id=72157715844102541&extras=url_o&format=json&nojsoncallback=1&auth_token=${process.env.REACT_APP_FLICKR_AUTH_TOKEN}&api_sig=${process.env.REACT_APP_FLICKR_API_SIG}`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&photoset_id=72157715844102541&extras=url_o&format=json&nojsoncallback=1&api_key=${process.env.REACT_APP_FLICKR_API_KEY}`)
       .then((response) => {
         if (
           response.data.hasOwnProperty('photoset') &&
           response.data.photoset.hasOwnProperty('photo')
         ) {
           setItems(response.data.photoset.photo);
+        } else {
+          console.log('response', response);
         }
       })
       .catch((error) => {
