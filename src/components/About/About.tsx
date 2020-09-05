@@ -12,18 +12,6 @@ const About: React.FC<AboutProps> = ({
 
 }: AboutProps) => {
   const [backgroundUrl, setBackgroundUrl] = useState<string>("");
-  const profileLinks = [
-    {
-      url: 'https://github.com/elizabethhart',
-      text: 'github',
-      icon: <FaGithub />
-    },
-    {
-      url: 'mailto:elizabethwhart@example.com',
-      text: 'email',
-      icon: <FaMailBulk />
-    }
-  ];
 
   useEffect(() => {
     let requestUrl = googleMapsUrl + process.env.REACT_APP_GOOGLE_MAPS_API_KEY
@@ -58,19 +46,6 @@ const About: React.FC<AboutProps> = ({
     width: 40%;
   `;
 
-  const ProfileHeader = styled.h1`
-    color: #7DFDFE;
-  `;
-
-  const ProfileSubheader = styled.h6`
-    color: white;
-  `;
-
-  const ProfileLink = styled.a`
-    color: white;
-    display: block;
-  `;
-
   return (
     <>
       <div className="about color-bar"></div>
@@ -87,19 +62,20 @@ const About: React.FC<AboutProps> = ({
                 src="https://elizabethhart.github.io/images/IMG_1321.JPG" 
               />
               <ProfileContent>
-                <ProfileHeader>
-                  Liz Hart
-                </ProfileHeader>
-                <ProfileSubheader>
-                  Software Engineer | Artist
-                </ProfileSubheader>
-                {profileLinks.map((profileLink) => {
-                  return <ProfileLink
-                    href={profileLink.url}
-                  >
-                    {profileLink.icon} {profileLink.text}
-                  </ProfileLink>
-                })}
+                <h1>Liz Hart</h1>
+                <h6>Software Engineer | Artist</h6>
+                <a
+                  href="https://github.com/elizabethhart"
+                  className="profile-link"
+                >
+                  <FaGithub /> {'github'}
+                </a>
+                <a
+                  href="mailto:elizabethwhart@example.com"
+                  className="profile-link"
+                >
+                  <FaMailBulk /> {'email'}
+                </a>
               </ProfileContent>
             </Card>
           </Col>

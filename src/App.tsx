@@ -7,19 +7,17 @@ import About from "./components/About/About";
 import './App.scss';
 
 class App extends React.Component {
-    render() {
-        return (
-            <Router>
-                <Layout />
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                </Switch>
-                <Switch>
-                    <Route path="/about" component={About} />
-                </Switch>
-            </Router>
-        );
-    }
+  render() {
+    return (
+      <Router>
+        <Layout />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
