@@ -4,6 +4,7 @@ import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
 import About from "./components/About/About";
 import EastCarmine from './components/EastCarmine/EastCarmine';
+import EmeraldCity from './components/EmeraldCity/EmeraldCity';
 
 import './App.scss';
 
@@ -25,6 +26,10 @@ class App extends React.Component {
           <Route
             path="/gallery"
             component={EastCarmine}
+          />
+          <Route
+            path="/bookshelf"
+            component={EmeraldCity}
           />
         </Switch>
       </Router>

@@ -22,6 +22,11 @@ const Navigation: React.FC<NavigationProps> = ({
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end">
                 <Nav.Link
+                    onClick={() => history.push('/bookshelf')}
+                >
+                    Bookshelf
+                </Nav.Link>
+                <Nav.Link
                     onClick={() => history.push('/gallery')}
                 >
                     Gallery
