@@ -9,6 +9,7 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
 
 }: EmeraldCityProps) => {
   const [books, setBooks] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const parseString = require('xml2js').parseString;
 
   useEffect(() => {
@@ -16,6 +17,7 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
   }, []);
 
   function getBooks() {
+    setIsLoading(true);
     axios.get(`${process.env.REACT_APP_CORS_ANYWHERE_URL}https://www.goodreads.com/review/list/89704524.xml?key=${process.env.REACT_APP_GOODREADS_API_KEY}&v=2&shelf=currently-reading`)
       .then((response) => {
         parseString(response.data, (err: any, result: any) => {
@@ -31,10 +33,12 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
               setBooks(result.GoodreadsResponse.reviews[0].review);
             }
          }
+         setIsLoading(false);
         }); 
       })
       .catch((error) => {
         console.log(error);
+        setIsLoading(false);
       });
   }
 
@@ -43,7 +47,7 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
       <div className="emeraldcity color-bar"></div>
       <Container className="home-container">
         <Row>
-          {books.length > 0
+          {!isLoading
             ? <Col>
               {books.map((book: any, index: number) => {
                 let bookObject = book.book[0];
