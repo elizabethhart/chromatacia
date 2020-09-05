@@ -16,7 +16,8 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
   }, []);
 
   function getBooks() {
-    const forLocalDev = 'https://cors-anywhere.herokuapp.com/';
+    // const forLocalDev = 'https://cors-anywhere.herokuapp.com/';
+    const forLocalDev = '';
     axios.get(`${forLocalDev}https://www.goodreads.com/review/list/89704524.xml?key=${process.env.REACT_APP_GOODREADS_API_KEY}&v=2&shelf=currently-reading`)
       .then((response) => {
         console.log('response', response);
