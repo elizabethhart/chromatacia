@@ -2,11 +2,27 @@
   background: #50c878;
 }
 
-.card {
-  display: inline-block;
-  margin: 20px;
+.book-image {
+  max-height: 300px;
+  width: auto;
 }
 
-.col {
+.carousel-item {
   text-align: center;
+  margin: 0;
+}
+
+.carousel-image {
+  height: 300px;
+  width: auto;
+  margin: 0;
+  margin-bottom: 80px;
+}
+
+.title-row {
+  text-align: center;
+
+  h1 {
+    width: 100%;
+  }
 }
