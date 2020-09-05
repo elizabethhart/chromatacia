@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.26",
-    "@types/re-base": "^3.2.0",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "@types/react-redux": "^7.1.7",
@@ -25,8 +24,8 @@
     "evergreen-ui": "^4.21.5",
     "font-awesome": "^4.7.0",
     "http-proxy-middleware": "^0.20.0",
+    "jquery": "^1.9.1",
     "node-sass": "^4.14.1",
-    "re-base": "^4.0.0",
     "react": "^16.12.0",
     "react-animations": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
@@ -51,7 +50,8 @@
     "start": "react-scripts --max_old_space_size=2048 start",
     "build": "react-scripts --max_old_space_size=2048 build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"

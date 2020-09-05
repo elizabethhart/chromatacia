@@ -5,7 +5,6 @@
 - [Create React App](https://github.com/facebook/create-react-app)
 - [Evergreen React UI Framework](https://evergreen.segment.com/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
-- [Firebase](https://firebase.google.com)
 
 ## Installation
 
