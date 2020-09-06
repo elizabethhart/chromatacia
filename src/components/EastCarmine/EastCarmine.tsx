@@ -22,6 +22,7 @@ const EastCarmine: React.FC<EastCarmineProps> = ({
           response.data.hasOwnProperty('photoset') &&
           response.data.photoset.hasOwnProperty('photo')
         ) {
+          console.log(response.data.photoset.photo);
           setItems(response.data.photoset.photo);
         } else {
           console.log('response', response);
@@ -37,6 +38,7 @@ const EastCarmine: React.FC<EastCarmineProps> = ({
       <div className="eastcarmine color-bar"></div>
 
       <Container className="carousel-container">
+        <h3>Drawings, Paintings, Digital Media...</h3>
         {items.map((item: any, index: number) => {
             return <Card style={{ width: '18rem' }} key={index}>
                 <Card.Img 

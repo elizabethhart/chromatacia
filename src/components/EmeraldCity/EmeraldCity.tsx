@@ -58,29 +58,30 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
   }
 
   function getAccordian(bookList: [any]) {
-    return <Col>
-      <Carousel>
-        {bookList.map((book: any, index: number) => {
-          let bookObject = book.book[0];
-          return <Carousel.Item>
-            <img
-              className="carousel-image"
-              src={bookObject.image_url}
-              alt="slide"
-            />
-            <Carousel.Caption>
-              <a 
-                href={bookObject.link}
-                className="carousel-title"
-              >
-                {bookObject.title}
-              </a>
-              <p>{bookObject.authors[0].author[0].name}</p>
-            </Carousel.Caption>
-          </Carousel.Item>;
-        })}
-      </Carousel>
-    </Col>;
+    return <Carousel>
+      {bookList.map((book: any, index: number) => {
+        let bookObject = book.book[0];
+        return <Carousel.Item
+          onClick={() => {
+            window.open(bookObject.link);
+          }}
+        >
+          <img
+            className="carousel-image"
+            src={bookObject.image_url}
+            alt="slide"
+          />
+          <Carousel.Caption>
+            <h3
+              className="carousel-title"
+            >
+              {bookObject.title}
+            </h3>
+            <p>{bookObject.authors[0].author[0].name}</p>
+          </Carousel.Caption>
+        </Carousel.Item>;
+      })}
+    </Carousel>;
   }
 
   return (
@@ -88,34 +89,28 @@ const EmeraldCity: React.FC<EmeraldCityProps> = ({
       <div className="emeraldcity color-bar"></div>
       <Container className="home-container">
           <Row className="title-row">
-            <h1>What I'm reading this week</h1>
-          </Row>
-          <Row className="title-row">
-            {!isLoading
-              ? getAccordian(currentBooks)
-              : <Col>
-                <Spinner 
+            <Col>
+              <h3>What I'm reading this week</h3>
+              {!isLoading
+                ? getAccordian(currentBooks)
+                : <Spinner 
                   animation="border" 
                   variant="light" 
                   className="m-5"
                 />
-              </Col>
-            }
-          </Row>
-          <Row className="title-row">
-            <h1>What I've read recently</h1>
-          </Row>
-          <Row className="title-row">
-            {!isLoading
-              ? getAccordian(pastBooks)
-              : <Col>
-                <Spinner 
+              }
+            </Col>
+            <Col>
+              <h3>Recent Reads</h3>
+              {!isLoading
+                ? getAccordian(pastBooks)
+                : <Spinner 
                   animation="border" 
                   variant="light" 
                   className="m-5"
                 />
-              </Col>
-            }
+              }
+            </Col>
           </Row>
       </Container>
     </>
