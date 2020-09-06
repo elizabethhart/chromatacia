@@ -12,6 +12,7 @@ Deployed to [liz-hart.com](http://www.liz-hart.com/)
 - [Evergreen React UI Framework](https://evergreen.segment.com/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [Styled Components](https://styled-components.com/)
+- [React i18next](https://react.i18next.com/)
 
 ## APIs
 

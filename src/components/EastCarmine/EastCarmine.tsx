@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { Card, Container, Modal } from "react-bootstrap";
 
@@ -7,6 +8,7 @@ import "./EastCarmine.scss";
 type EastCarmineProps = {};
 
 const EastCarmine: React.FC<EastCarmineProps> = () => {
+  const { t } = useTranslation();
   const [items, setItems] = useState<any>([]);
   const [show, setShow] = useState<boolean>(false);
   const [selectedUrl, setSelectedUrl] = useState<string>("");
@@ -50,7 +52,7 @@ const EastCarmine: React.FC<EastCarmineProps> = () => {
       <div className="eastcarmine color-bar"></div>
 
       <Container className="carousel-container">
-        <h3>Drawings, Paintings, Digital Media...</h3>
+        <h3>{t("Drawings, Paintings, Digital Media")}</h3>
         {items.map((item: any, index: number) => {
           return (
             <Card

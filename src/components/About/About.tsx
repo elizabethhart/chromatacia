@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import styled from "styled-components";
@@ -9,6 +10,7 @@ import "./About.scss";
 type AboutProps = {};
 
 const About: React.FC<AboutProps> = () => {
+  const { t } = useTranslation();
   const [backgroundUrl, setBackgroundUrl] = useState<string>("");
 
   useEffect(() => {
@@ -65,7 +67,9 @@ const About: React.FC<AboutProps> = () => {
                   <h1>Liz Hart</h1>
                 </Row>
                 <Row className="justify-content-md-center">
-                  <h6>Software Engineer | Artist</h6>
+                  <h6>
+                    {t("Software Engineer")} | {t("Artist")}
+                  </h6>
                 </Row>
                 <Row className="justify-content-md-center">
                   <h6>

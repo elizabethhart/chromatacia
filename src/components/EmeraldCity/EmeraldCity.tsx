@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { Carousel, Col, Container, Row, Spinner } from "react-bootstrap";
 import "./EmeraldCity.scss";
@@ -6,6 +7,7 @@ import "./EmeraldCity.scss";
 type EmeraldCityProps = {};
 
 const EmeraldCity: React.FC<EmeraldCityProps> = () => {
+  const { t } = useTranslation();
   const [currentBooks, setCurrentBooks] = useState<any>([]);
   const [pastBooks, setPastBooks] = useState<any>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -94,7 +96,7 @@ const EmeraldCity: React.FC<EmeraldCityProps> = () => {
       <Container className="home-container">
         <Row className="title-row">
           <Col>
-            <h3>What I'm reading this week</h3>
+            <h3>{t("What I'm reading this week")}</h3>
             {!isLoading ? (
               getAccordian(currentBooks)
             ) : (
@@ -102,7 +104,7 @@ const EmeraldCity: React.FC<EmeraldCityProps> = () => {
             )}
           </Col>
           <Col>
-            <h3>Recent Reads</h3>
+            <h3>{t("Recent Reads")}</h3>
             {!isLoading ? (
               getAccordian(pastBooks)
             ) : (
