@@ -25,10 +25,20 @@
   .card {
     display: inline-block;
     margin: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
 h3 {
   width: 100%;
   text-align: center;
+}
+
+.modal-image {
+  height: auto;
+  width: 100%;
+  margin: 0;
 }

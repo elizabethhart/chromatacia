@@ -1,16 +1,10 @@
 import React from "react";
-import './HighSaffron.scss';
+import "./HighSaffron.scss";
 
-type HighSaffronProps = { }
+type HighSaffronProps = {};
 
-const HighSaffron: React.FC<HighSaffronProps> = ({
-
-}: HighSaffronProps) => {
-    return (
-        <>
-            <div className="highsaffron color-bar"></div>
-        </>
-    );
+const HighSaffron: React.FC<HighSaffronProps> = () => {
+  return <div className="highsaffron color-bar"></div>;
 };
 
 export default HighSaffron;

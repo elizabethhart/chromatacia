@@ -1,17 +1,10 @@
-import React from "react"
-import { useHistory } from 'react-router-dom'
-import './Vermillion.scss';
+import React from "react";
+import "./Vermillion.scss";
 
-type VermillionProps = { }; 
+type VermillionProps = {};
 
-const Vermillion: React.FC<VermillionProps> = ({
-    
-}: VermillionProps) => {
-    return (
-        <>
-            <div className="vermillion color-bar"></div>
-        </>
-    );
+const Vermillion: React.FC<VermillionProps> = () => {
+  return <div className="vermillion color-bar"></div>;
 };
 
 export default Vermillion;
