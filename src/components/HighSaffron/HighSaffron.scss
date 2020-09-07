@@ -1,3 +1,7 @@
 .highsaffron {
   background: #f4c430;
+  background: -webkit-linear-gradient(left, red, purple);
+  background: -o-linear-gradient(right, red, purple);
+  background: -moz-linear-gradient(right, red, purple);
+  background: linear-gradient(to right, red, purple);
 }

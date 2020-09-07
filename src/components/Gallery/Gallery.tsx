@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { Card, Container, Modal } from "react-bootstrap";
 
-import "./EastCarmine.scss";
+import "./Gallery.scss";
 
-type EastCarmineProps = {};
+type GalleryProps = {};
 
-const EastCarmine: React.FC<EastCarmineProps> = () => {
+const Gallery: React.FC<GalleryProps> = () => {
   const { t } = useTranslation();
   const [items, setItems] = useState<any>([]);
   const [show, setShow] = useState<boolean>(false);
@@ -27,7 +27,6 @@ const EastCarmine: React.FC<EastCarmineProps> = () => {
           response.data.hasOwnProperty("photoset") &&
           response.data.photoset.hasOwnProperty("photo")
         ) {
-          console.log(response.data.photoset.photo);
           setItems(response.data.photoset.photo);
         } else {
           console.log("response", response);
@@ -74,4 +73,4 @@ const EastCarmine: React.FC<EastCarmineProps> = () => {
   );
 };
 
-export default EastCarmine;
+export default Gallery;

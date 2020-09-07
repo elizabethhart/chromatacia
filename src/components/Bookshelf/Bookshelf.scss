@@ -1,0 +1,41 @@
+.emeraldcity {
+  background: #50c878;
+  background: -webkit-linear-gradient(left, yellow, green);
+  background: -o-linear-gradient(right, yellow, green);
+  background: -moz-linear-gradient(right, yellow, green);
+  background: linear-gradient(to right, yellow, green);
+}
+
+.home-container {
+  padding: 20px;
+  text-align: center;
+
+  .row {
+    height: 400px;
+  }
+
+  .carousel-image {
+    margin: 0;
+    margin-bottom: 80px;
+  }
+
+  .carousel-item {
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  .carousel-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .title-row {
+    text-align: center;
+
+    h3 {
+      width: 100%;
+    }
+  }
+}

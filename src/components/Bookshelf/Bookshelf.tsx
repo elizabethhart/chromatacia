@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import { Carousel, Col, Container, Row, Spinner } from "react-bootstrap";
-import "./EmeraldCity.scss";
+import { Container, Row } from "react-bootstrap";
+import ItemCarousel from "../ItemCarousel/ItemCarousel";
+import "./Bookshelf.scss";
 
-type EmeraldCityProps = {};
+type BookshelfProps = {};
 
-const EmeraldCity: React.FC<EmeraldCityProps> = () => {
+const Bookshelf: React.FC<BookshelfProps> = () => {
   const { t } = useTranslation();
   const [currentBooks, setCurrentBooks] = useState<any>([]);
   const [pastBooks, setPastBooks] = useState<any>([]);
+  const [favoriteBooks, setFavoriteBooks] = useState<any>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const parseString = require("xml2js").parseString;
 
   useEffect(() => {
     getCurrentBooks();
     getPastBooks();
+    getFavoriteBooks();
   }, []);
 
   function getCurrentBooks() {
@@ -44,14 +47,13 @@ const EmeraldCity: React.FC<EmeraldCityProps> = () => {
     setIsLoading(true);
     axios
       .get(
-        `${process.env.REACT_APP_CORS_ANYWHERE_URL}https://www.goodreads.com/review/list/89704524.xml?key=${process.env.REACT_APP_GOODREADS_API_KEY}&v=2&shelf=read&sort=date_pub`
+        `${process.env.REACT_APP_CORS_ANYWHERE_URL}https://www.goodreads.com/review/list/89704524.xml?key=${process.env.REACT_APP_GOODREADS_API_KEY}&v=2&shelf=read&sort=date_pub&per_page=10`
       )
       .then((response) => {
         parseString(response.data, (err: any, result: any) => {
           if (err) {
             console.log(err);
           } else {
-            console.log(result.GoodreadsResponse.reviews[0].review);
             setPastBooks(result.GoodreadsResponse.reviews[0].review);
           }
           setIsLoading(false);
@@ -63,31 +65,26 @@ const EmeraldCity: React.FC<EmeraldCityProps> = () => {
       });
   }
 
-  function getAccordian(bookList: [any]) {
-    return (
-      <Carousel>
-        {bookList.map((book: any, index: number) => {
-          let bookObject = book.book[0];
-          return (
-            <Carousel.Item
-              onClick={() => {
-                window.open(bookObject.link);
-              }}
-            >
-              <img
-                className="carousel-image"
-                src={bookObject.image_url}
-                alt="slide"
-              />
-              <Carousel.Caption>
-                <h3 className="carousel-title">{bookObject.title}</h3>
-                <p>{bookObject.authors[0].author[0].name}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          );
-        })}
-      </Carousel>
-    );
+  function getFavoriteBooks() {
+    setIsLoading(true);
+    axios
+      .get(
+        `${process.env.REACT_APP_CORS_ANYWHERE_URL}https://www.goodreads.com/review/list/89704524.xml?key=${process.env.REACT_APP_GOODREADS_API_KEY}&v=2&shelf=favorites&sort=date_pub`
+      )
+      .then((response) => {
+        parseString(response.data, (err: any, result: any) => {
+          if (err) {
+            console.log(err);
+          } else {
+            setFavoriteBooks(result.GoodreadsResponse.reviews[0].review);
+          }
+          setIsLoading(false);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   }
 
   return (
@@ -95,26 +92,27 @@ const EmeraldCity: React.FC<EmeraldCityProps> = () => {
       <div className="emeraldcity color-bar"></div>
       <Container className="home-container">
         <Row className="title-row">
-          <Col>
-            <h3>{t("What I'm reading this week")}</h3>
-            {!isLoading ? (
-              getAccordian(currentBooks)
-            ) : (
-              <Spinner animation="border" variant="light" className="m-5" />
-            )}
-          </Col>
-          <Col>
-            <h3>{t("Recent Reads")}</h3>
-            {!isLoading ? (
-              getAccordian(pastBooks)
-            ) : (
-              <Spinner animation="border" variant="light" className="m-5" />
-            )}
-          </Col>
+          <ItemCarousel
+            items={currentBooks}
+            itemHeadline={t("What I'm reading this week")}
+            isLoading={isLoading}
+          />
+          <ItemCarousel
+            items={favoriteBooks}
+            itemHeadline={t("Favorites")}
+            isLoading={isLoading}
+          />
+        </Row>
+        <Row className="bottom-row">
+          <ItemCarousel
+            items={pastBooks}
+            itemHeadline={t("Recent Reads")}
+            isLoading={isLoading}
+          />
         </Row>
       </Container>
     </>
   );
 };
 
-export default EmeraldCity;
+export default Bookshelf;
