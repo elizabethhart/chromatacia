@@ -2,9 +2,12 @@
   "About": "About",
   "Artist": "Artist",
   "Bookshelf": "Bookshelf",
+  "Contact": "Contact",
   "Drawings, Paintings, Digital Media": "Drawings, Paintings, Digital Media",
   "Gallery": "Gallery",
   "Favorites": "Favorites",
+  "Hello": "Hello",
+  "Intro": "I'm {{name}}, a software engineer",
   "Recent Reads": "Recent Reads",
   "Software Engineer": "Software Engineer",
   "What I'm reading this week": "What I'm reading this week"
