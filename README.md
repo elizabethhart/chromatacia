@@ -1,6 +1,6 @@
 # Chromatacia
 
-Deployed to [liz-hart.com](http://www.liz-hart.com/)
+Deployed to [liz-hart.com](https://www.liz-hart.com/)
 
 ## Tools
 
