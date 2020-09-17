@@ -23,7 +23,6 @@
     "chart.js": "^2.9.3",
     "dotenv": "^8.2.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "evergreen-ui": "^4.21.5",
     "font-awesome": "^4.7.0",
     "http-proxy-middleware": "^0.20.0",
     "i18next": "^19.7.0",
