@@ -18,7 +18,7 @@ const Navigation: React.FC<NavigationProps> = () => {
 
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
-      <Navbar.Brand onClick={() => history.push("/")}>
+      <Navbar.Brand data-testid="home-link" onClick={() => history.push("/")}>
         <h5 className="chromatacia-brand">
           <ColorWheel /> Chromatacia
         </h5>
@@ -26,14 +26,12 @@ const Navigation: React.FC<NavigationProps> = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-end">
         <Nav.Link onClick={() => history.push("/bookshelf")}>
-          {t("Bookshelf")}
+          {t("bookshelf")}
         </Nav.Link>
         <Nav.Link onClick={() => history.push("/gallery")}>
-          {t("Gallery")}
+          {t("gallery")}
         </Nav.Link>
-        <Nav.Link className="about-link" onClick={() => history.push("/about")}>
-          {t("About")}
-        </Nav.Link>
+        <Nav.Link onClick={() => history.push("/about")}>{t("about")}</Nav.Link>
         <ButtonGroup>
           <Button variant="secondary" onClick={() => changeLanguage("de")}>
             de

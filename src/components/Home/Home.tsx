@@ -19,7 +19,7 @@ const Home: React.FC<HomeProps> = () => {
           <p>{t("Intro", { name: "Liz" })}</p>
           <Row className="justify-content-md-center">
             <Button variant="light" onClick={() => history.push("/about")}>
-              {t("Contact")}
+              {t("contact")}
             </Button>
           </Row>
         </div>
