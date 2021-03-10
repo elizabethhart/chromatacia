@@ -11,7 +11,21 @@ type NavigationProps = {};
 const Navigation: React.FC<NavigationProps> = () => {
   const { t } = useTranslation();
   const history = useHistory();
-  const options = ["de", "sv", "en"];
+  const languageOptions = ["de", "sv", "en"];
+  const navOptions = [
+    {
+      title: t("bookshelf"),
+      route: "/bookshelf",
+    },
+    {
+      title: t("gallery"),
+      route: "/gallery",
+    },
+    {
+      title: t("about"),
+      route: "/about",
+    },
+  ];
   const [language, setLanguage] = useState<string>("en");
 
   useEffect(() => {
@@ -27,15 +41,15 @@ const Navigation: React.FC<NavigationProps> = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-end">
-        <Nav.Link onClick={() => history.push("/bookshelf")}>
-          {t("bookshelf")}
-        </Nav.Link>
-        <Nav.Link onClick={() => history.push("/gallery")}>
-          {t("gallery")}
-        </Nav.Link>
-        <Nav.Link onClick={() => history.push("/about")}>{t("about")}</Nav.Link>
+        {navOptions.map((navOption) => {
+          return (
+            <Nav.Link onClick={() => history.push(navOption.route)}>
+              {navOption.title}
+            </Nav.Link>
+          );
+        })}
         <ButtonGroup>
-          {options.map((option: string, index: number) => {
+          {languageOptions.map((option: string, index: number) => {
             return (
               <Button
                 active={language === option}
