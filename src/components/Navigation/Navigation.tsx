@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonGroup, Nav, Navbar } from "react-bootstrap";
@@ -11,10 +11,12 @@ type NavigationProps = {};
 const Navigation: React.FC<NavigationProps> = () => {
   const { t } = useTranslation();
   const history = useHistory();
+  const options = ["de", "sv", "en"];
+  const [language, setLanguage] = useState<string>("en");
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
 
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
@@ -33,15 +35,18 @@ const Navigation: React.FC<NavigationProps> = () => {
         </Nav.Link>
         <Nav.Link onClick={() => history.push("/about")}>{t("about")}</Nav.Link>
         <ButtonGroup>
-          <Button variant="secondary" onClick={() => changeLanguage("de")}>
-            de
-          </Button>
-          <Button variant="secondary" onClick={() => changeLanguage("sv")}>
-            sv
-          </Button>
-          <Button variant="secondary" onClick={() => changeLanguage("en")}>
-            en
-          </Button>
+          {options.map((option: string, index: number) => {
+            return (
+              <Button
+                active={language === option}
+                variant="secondary"
+                onClick={() => setLanguage(option)}
+                key={index}
+              >
+                {option}
+              </Button>
+            );
+          })}
         </ButtonGroup>
       </Navbar.Collapse>
     </Navbar>
