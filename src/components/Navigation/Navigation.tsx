@@ -55,7 +55,6 @@ const Navigation: React.FC<NavigationProps> = () => {
                 active={language === option}
                 variant="secondary"
                 onClick={() => setLanguage(option)}
-                key={index}
               >
                 {option}
               </Button>
