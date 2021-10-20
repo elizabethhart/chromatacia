@@ -61,23 +61,6 @@ const About: React.FC<AboutProps> = () => {
               </a>
             </Card>
           </Col>
-          <Col md="9">
-            <h1>Technologies</h1>
-            <List>
-              <li>
-                <h2>Javascript</h2>
-                <p>
-                  I'm currently using this domain to build and test React
-                  components in an effort to better learn the capabilities of
-                  the library and to apply various front-end frameworks.
-                </p>
-                <p>
-                  Previously I have worked in a variety of javascript frameworks
-                  and libraries including: Ember, Angular, Ionic, and jQuery.
-                </p>
-              </li>
-            </List>
-          </Col>
         </Row>
       </Container>
     </>
