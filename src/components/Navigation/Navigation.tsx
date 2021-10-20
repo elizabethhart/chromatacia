@@ -14,15 +14,15 @@ const Navigation: React.FC<NavigationProps> = () => {
   const languageOptions = ["de", "sv", "en"];
   const navOptions = [
     {
-      title: t("bookshelf"),
+      title: t`bookshelf`,
       route: "/bookshelf",
     },
     {
-      title: t("gallery"),
+      title: t`gallery`,
       route: "/gallery",
     },
     {
-      title: t("about"),
+      title: t`about`,
       route: "/about",
     },
   ];

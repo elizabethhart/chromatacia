@@ -25,10 +25,6 @@ const About: React.FC<AboutProps> = () => {
     vertical-align: top;
   `;
 
-  const List = styled.ul`
-    list-style-type: none;
-  `;
-
   return (
     <>
       <div className="about color-bar"></div>
