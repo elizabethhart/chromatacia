@@ -15,11 +15,11 @@ const Home: React.FC<HomeProps> = () => {
       <div className="roygbv color-bar"></div>
       <Container>
         <div className="typewriter">
-          <h1>{t("Hello")}</h1>
-          <p>{t("Intro", { name: "Liz" })}</p>
+          <h1>{t`hello`}</h1>
+          <p>{t("intro", { name: "Liz" })}</p>
           <Row className="justify-content-md-center">
             <Button variant="light" onClick={() => history.push("/about")}>
-              {t("contact")}
+              {t`contact`}
             </Button>
           </Row>
         </div>

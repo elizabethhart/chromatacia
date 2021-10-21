@@ -6,9 +6,9 @@ type ColorWheelProps = {};
 const ColorWheel: React.FC<ColorWheelProps> = () => {
   return (
     <div id="colorWheel">
-      {Array.from(Array(10).keys()).map((item, idx) => {
+      {Array.from(Array(10).keys()).map((_item, idx) => {
         const className = `color0${idx + 1}`;
-        return <span className={className}></span>;
+        return <span key={idx} className={className}></span>;
       })}
     </div>
   );

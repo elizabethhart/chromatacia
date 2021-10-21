@@ -3,12 +3,12 @@
   "artist": "Artist",
   "bookshelf": "Bookshelf",
   "contact": "Contact",
-  "Drawings, Paintings, Digital Media": "Drawings, Paintings, Digital Media",
+  "drawings-paintings-digital-media": "Drawings, Paintings, Digital Media",
   "gallery": "Gallery",
-  "Favorites": "Favorites",
-  "Hello": "Hello",
-  "Intro": "I'm {{name}}, a software engineer",
-  "Recent Reads": "Recent Reads",
-  "Software Engineer": "Software Engineer",
-  "What I'm reading this week": "What I'm reading this week"
+  "favorites": "Favorites",
+  "hello": "Hello",
+  "intro": "I'm {{name}}, a software engineer",
+  "recent-reads": "Recent Reads",
+  "software-engineer": "Software Engineer",
+  "what-im-reading-this-week": "What I'm reading this week"
 }

@@ -111,12 +111,12 @@ const Bookshelf: React.FC<BookshelfProps> = () => {
             <Row className="title-row">
               <ItemCarousel
                 items={currentBooks}
-                itemHeadline={t`What I'm reading this week`}
+                itemHeadline={t`what-im-reading-this-week`}
               />
-              <ItemCarousel items={favoriteBooks} itemHeadline={t`Favorites`} />
+              <ItemCarousel items={favoriteBooks} itemHeadline={t`favorites`} />
             </Row>
             <Row className="bottom-row">
-              <ItemCarousel items={pastBooks} itemHeadline={t`Recent Reads`} />
+              <ItemCarousel items={pastBooks} itemHeadline={t`recent-reads`} />
             </Row>
           </>
         )}

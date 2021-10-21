@@ -3,12 +3,12 @@
   "artist": "konstnär",
   "bookshelf": "bokhylla",
   "contact": "Kontakt",
-  "Drawings, Paintings, Digital Media": "Ritningar, målningar, digitala medier",
+  "drawings-paintings-digital-media": "Ritningar, målningar, digitala medier",
   "gallery": "konstgalleri",
-  "Favorites": "Favoriter",
-  "Hello": "Hallå",
-  "Intro": "Mitt namn är {{name}}, programvaruingenjör",
-  "Recent Reads": "läst nyligen",
-  "Software Engineer": "mjukvaruingenjör",
-  "What I'm reading this week": "vad jag läser den här veckan"
+  "favorites": "Favoriter",
+  "hello": "Hallå",
+  "intro": "Mitt namn är {{name}}, programvaruingenjör",
+  "recent-reads": "läst nyligen",
+  "software-engineer": "mjukvaruingenjör",
+  "what-im-reading-this-week": "vad jag läser den här veckan"
 }

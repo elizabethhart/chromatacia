@@ -41,9 +41,9 @@ const Navigation: React.FC<NavigationProps> = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-end">
-        {navOptions.map((navOption) => {
+        {navOptions.map((navOption, idx) => {
           return (
-            <Nav.Link onClick={() => history.push(navOption.route)}>
+            <Nav.Link key={idx} onClick={() => history.push(navOption.route)}>
               {navOption.title}
             </Nav.Link>
           );
@@ -54,6 +54,7 @@ const Navigation: React.FC<NavigationProps> = () => {
               <Button
                 active={language === option}
                 variant="secondary"
+                key={index}
                 onClick={() => setLanguage(option)}
               >
                 {option}

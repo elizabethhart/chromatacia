@@ -66,7 +66,7 @@ const Gallery: React.FC<GalleryProps> = () => {
       <div className="eastcarmine color-bar"></div>
 
       <Container className="carousel-container">
-        <h3>{t("Drawings, Paintings, Digital Media")}</h3>
+        <h3>{t`drawings-paintings-digital-media`}</h3>
         {isLoading ? (
           <Spinner animation="border" variant="light" className="m-5" />
         ) : (

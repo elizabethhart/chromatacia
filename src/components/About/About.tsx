@@ -38,7 +38,7 @@ const About: React.FC<AboutProps> = () => {
               />
               <h1>Liz Hart</h1>
               <h6>
-                {t("Software Engineer")} | {t("artist")}
+                {t`software-engineer`} | {t`artist`}
               </h6>
               <h6>
                 <FaMapPin /> Chicago
