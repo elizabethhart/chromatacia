@@ -3,12 +3,12 @@
   "artist": "Künstlerin",
   "bookshelf": "Bücherregal",
   "contact": "Kontakt",
-  "Drawings, Paintings, Digital Media": "Zeichnungen, Gemälde, digitale Medien",
+  "drawings-paintings-digital-media": "Zeichnungen, Gemälde, digitale Medien",
   "gallery": "Kunstgalerie",
-  "Favorites": "Favoriten",
-  "Hello": "Hallo",
-  "Intro": "Mein Name ist {{name}}, ein Softwareentwickler",
-  "Recent Reads": "kürzlich gelesen",
-  "Software Engineer": "Softwareentwickler",
-  "What I'm reading this week": "Was ich diese Woche lese"
+  "favorites": "Favoriten",
+  "hello": "Hallo",
+  "intro": "Mein Name ist {{name}}, ein Softwareentwickler",
+  "recent-reads": "kürzlich gelesen",
+  "software-engineer": "Softwareentwickler",
+  "what-im-reading-this-week": "Was ich diese Woche lese"
 }
