@@ -31,6 +31,13 @@
   ); /* Standard syntax (must be last) */
 }
 
+.card {
+  background-color: #202020;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
 .profile-link {
   display: block;
   color: white;
@@ -39,6 +46,13 @@
     text-decoration: none;
     cursor: pointer;
   }
+}
+
+.profile-image {
+  display: block;
+  width: 90%;
+  border-radius: 50%;
+  margin: 20px;
 }
 
 h1,
