@@ -4,8 +4,8 @@ import ReactGA from "react-ga";
 import Navigation from "./components/Navigation/Navigation";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
-import Gallery from "./components/Gallery/Gallery";
-import Bookshelf from "./components/Bookshelf/Bookshelf";
+// import Gallery from "./components/Gallery/Gallery";
+// import Bookshelf from "./components/Bookshelf/Bookshelf";
 
 import "./App.scss";
 
@@ -20,8 +20,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/gallery" component={Gallery} />
-        <Route path="/bookshelf" component={Bookshelf} />
+        {/* <Route path="/gallery" component={Gallery} />
+        <Route path="/bookshelf" component={Bookshelf} /> */}
       </Switch>
     </Router>
   );
