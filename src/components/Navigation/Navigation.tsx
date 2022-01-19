@@ -13,14 +13,14 @@ const Navigation: React.FC<NavigationProps> = () => {
   const history = useHistory();
   const languageOptions = ["de", "sv", "en"];
   const navOptions = [
-    {
-      title: t`bookshelf`,
-      route: "/bookshelf",
-    },
-    {
-      title: t`gallery`,
-      route: "/gallery",
-    },
+    // {
+    //   title: t`bookshelf`,
+    //   route: "/bookshelf",
+    // },
+    // {
+    //   title: t`gallery`,
+    //   route: "/gallery",
+    // },
     {
       title: t`about`,
       route: "/about",
