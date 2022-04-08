@@ -16,11 +16,6 @@ const About: React.FC<AboutProps> = () => {
         <Row>
           <Col md="3">
             <div className="card">
-              <img
-                className="profile-image"
-                alt="google-map"
-                src="https://elizabethhart.github.io/images/IMG_1321.JPG"
-              />
               <h1>Liz Hart</h1>
               <h6>
                 {t`software-engineer`} | {t`artist`}
